@@ -15,7 +15,7 @@ convertor = get_convertor(conversions)
 with open("original_currency.csv","w") as file:
     file.write(f"Title, 'Original currency ~ GBP', 'Converted currency ~ {convertor}'\n")
 page_count = 1
-while page_count<10:
+while page_count:
     products = get_page_data(page_count)
     if not products:
         if page_count == 1:
