@@ -13,15 +13,15 @@ convertor = get_convertor(conversions)
     
 
 with open("original_currency.csv","w") as file:
-    file.write(f"Title, 'Original currency ~ GBP', 'Converted currency ~ {convertor}'\n")
-page_count = 1
-while page_count:
+    file.write(f"Title, 'Original currency ~ GBP', 'Converted currency ~ {convertor}'\n\n")
+page_count = 49  # This is used to set the min num of pages. Max number of pages is 50
+while page_count:# This is used to set the max num of pages.
     products = get_page_data(page_count)
     if not products:
         if page_count == 1:
-            print("api call failed")
+            print("API call failed")
         else:
-            print("could not find that page, must be finished")
+            print("Could not find anymore pages, must be finished")
         break
     
     with open("original_currency.csv","a",encoding="utf-8") as file:
